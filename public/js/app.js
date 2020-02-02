@@ -31,7 +31,7 @@ weatherForm.addEventListener("submit", e => {
         const { location, forecast } = obj;
         search.value = "";
         weatherMessage.classList.remove("loader");
-        weatherMessage.innerHTML = `${location}: ${forecast}`;
+        weatherMessage.innerHTML = `<h3>${location}:</h3><p>${forecast}</p>`;
       }
     })
     .catch(err => console.error(err));

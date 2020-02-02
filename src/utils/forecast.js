@@ -9,7 +9,7 @@ const forecast = (latitude, longitude, callback) => {
       callback("Place not found", null);
     } else {
       const { temperature, precipProbability, summary } = body.currently;
-      callback(null, `there is currently ${temperature} degrees, and a ${precipProbability}% chance of rain. It is looking ${summary}.`)
+      callback(null, `Currently <strong>${temperature} degrees</strong> (Celsius), and a <strong>${precipProbability}%</strong> chance of rain. It is looking ${summary}.`)
     }
   });
 };
