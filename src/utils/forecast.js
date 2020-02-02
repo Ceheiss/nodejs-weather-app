@@ -8,8 +8,10 @@ const forecast = (latitude, longitude, callback) => {
     } else if (body.error, null) {
       callback("Place not found", null);
     } else {
+      const { temperatureHigh, temperatureLow } = body.daily.data[0];
       const { temperature, precipProbability, summary } = body.currently;
-      callback(null, `Currently <strong>${temperature} degrees</strong> (Celsius), and a <strong>${precipProbability}%</strong> chance of rain. It is looking ${summary}.`)
+      callback(null, `Currently <strong>${Math.round(temperature)}°C</strong>, and a <strong>${precipProbability}%</strong> chance of rain. It is looking ${summary}.
+      <p>Hightest temperature will be <strong>${Math.round(temperatureHigh)}°C</strong> and the lowest <strong>${Math.round(temperatureLow)}°C</strong></p>`)
     }
   });
 };
